@@ -6,8 +6,6 @@
 
 body {
 	font-family: 'Montserrat', sans-serif;
-	display: flex;
-	flex-wrap: wrap;
 }
 
 html, body {
@@ -33,7 +31,6 @@ html, body {
 }
 
 .logo {
-	background-image: url(furnitureshop/img/logo.png);
 	margin-top: 63px;
 	width: 185px;
 	height: 22px;
@@ -76,8 +73,7 @@ html, body {
 .search {
 	display: block;
 	width: 23px;
-	height: 23px;	
-	background-image: url(furnitureshop/img/search.png);
+	height: 23px;
 	position: absolute;
 	top: 63px;
 	left: 1176px;
@@ -86,7 +82,6 @@ html, body {
 	display: block;
 	width: 32px;
 	height: 32px;
-	background-image: url(furnitureshop/img/basket.png);
 	position: absolute;
 	top: 63px;
 	left: 1210px;
@@ -236,7 +231,6 @@ html, body {
 	border-bottom: 3px solid #212121;
 	padding-bottom: 8px;
 }
-
 .explore {
 	text-transform: uppercase;
 	color:  #212121;
@@ -256,7 +250,6 @@ html, body {
 	color: #6c6c6c;
 	border-bottom: 3px solid #6c6c6c;
 }
-
 .tab-content {
 	margin-top: 50px;
 	display: flex;

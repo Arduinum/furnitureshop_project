@@ -133,3 +133,6 @@ my_test.py
 
 # for pycharm
 .idea
+
+# files for Mac OS
+.DS_Store
