@@ -4,10 +4,10 @@ from django.shortcuts import render
 def index(request):
     title = 'магазин'
     context = {
-        'title': title
+        'title': title,
     }
 
-    return render(request, 'index.html', context=context)
+    return render(request=request, template_name='index.html', context=context)
 
 
 def contacts(request):
@@ -16,4 +16,4 @@ def contacts(request):
         'title': title
     }
 
-    return render(request, 'contacts.html', context=context)
+    return render(request=request, template_name='contacts.html', context=context)
