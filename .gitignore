@@ -132,7 +132,13 @@ dmypy.json
 my_test.py
 
 # for pycharm
-.idea
+.idea/
 
 # files for Mac OS
-.DS_Store
+**/.DS_Store
+
+# for Django
+media/
+migrations/
+fonts/
+img/
