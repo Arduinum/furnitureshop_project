@@ -861,7 +861,6 @@ td:first-child {
 .description-text p {
 	margin-bottom: 0.5em;
 }
-
 .related {
 	padding: 0px 98px;
 }
@@ -877,6 +876,7 @@ td:first-child {
 }
 .related-products {
 	margin-bottom: 120px;
+	display: flex;
 }
 .related-products .block a img {
 	float: left;
