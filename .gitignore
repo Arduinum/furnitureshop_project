@@ -142,3 +142,6 @@ media/
 migrations/
 fonts/
 img/
+jsons/
+management/
+**/*.json
