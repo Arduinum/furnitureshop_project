@@ -86,12 +86,16 @@ html, body {
 }
 
 .basket {
-    display: block;
+    display: flex;
     width: 32px;
     height: 32px;
     position: absolute;
     top: 63px;
     left: 1210px;
+}
+
+.basket div {
+    margin: auto;
 }
 
 .clearfix:after {
@@ -815,6 +819,7 @@ td:first-child {
 }
 
 .details-products {
+    display: flex;
     padding-left: 98px;
     padding-right: 98px;
     margin-top: 98px;
@@ -902,6 +907,19 @@ td:first-child {
     font-weight: 300;
     line-height: 48px;
     text-align: center;
+}
+
+.description-text {
+	margin-top: 50px;
+	color:  #212121;
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 24px;
+	text-align: left;
+}
+
+.description-text p {
+	margin-bottom: 0.5em;
 }
 
 .red-button {

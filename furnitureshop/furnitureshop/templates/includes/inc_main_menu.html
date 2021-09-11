@@ -3,9 +3,11 @@
 <div class="header clearfix">
     <a href="{% url 'index' %}" class="logo"><img src="{% static 'furnitureshop/img/logo.png' %}" alt=""></a>
     <ul class="menu">
-        <li><a href="{% url 'index' %}" class={% if title|title == 'Магазин' %}{{'active'}}{% endif %}>домой</a></li>
-        <li><a href="{% url 'products:index' %}" class={% if title|title == 'Продукты/Каталог' %}{{'active'}}{% endif %}>продукты</a></li>
-        <li><a href="{% url 'contacts' %}" class={% if title|title == 'Контакты' %}{{'active'}}{% endif %}>контакты</a></li>
+        <li><a href="{% url 'index' %}" class={% if title|title == 'Магазин' %}{{ 'active' }}{% endif %}>домой</a></li>
+        <li><a href="{% url 'products:index' %}" class=
+                {% if title|title == 'Продукты/Каталог' %}{{ 'active' }}{% endif %}>продукты</a></li>
+        <li><a href="{% url 'contacts' %}" class=
+                {% if title|title == 'Контакты' %}{{ 'active' }}{% endif %}>контакты</a></li>
         {% if user.is_authenticated %}
             <li>
                 <a href="{% url 'auth:edit' %}">
@@ -13,14 +15,15 @@
                 </a>
             </li>
         {% endif %}
-            <li>
-                {% if user.is_authenticated %}
-                    <a href="{% url 'auth:logout' %}">выйти</a>
-                {% else %}
-                    <a href="{% url 'auth:login' %}">войти</a>
-                {% endif %}
-            </li>
+        <li>
+            {% if user.is_authenticated %}
+                <a href="{% url 'auth:logout' %}">выйти</a>
+            {% else %}
+                <a href="{% url 'auth:login' %}">войти</a>
+            {% endif %}
+        </li>
     </ul>
     <a href="#" class="search"><img src="{% static 'furnitureshop/img/search.png' %}" alt=""></a>
-    <a href="#" class="basket"><img src="{% static 'furnitureshop/img/basket.png' %}" alt=""></a>
+    <a href="{% url 'basket:view' %}" class="basket"><img src="{% static 'furnitureshop/img/basket.png' %}"
+                                                          alt=""><div>&nbsp;{{ basket|length }}</div></a>
 </div>
