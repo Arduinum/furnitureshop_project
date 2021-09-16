@@ -1,0 +1,49 @@
+{% extends 'furnitureshop/base.html' %}
+{% load static %}
+
+{% block js %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="h2 text-center head">
+        Ваша корзина,
+        {% if user.first_name %}
+            {{ user.first_name|title }}
+        {% else %}
+            Пользователь
+        {% endif %}
+    </div>
+
+    <div class="basket_list">
+        {% for item in basket %}
+            <div class="basket_record">
+                <img src="/media/{{ item.product.image }}" alt="{{ item.product.short_desc }}">
+                <span class="category_name">{{ item.product.category.name }}</span>
+                <span class="product_name">{{ item.product.name }}</span>
+                <span class="product_price">{{ item.product.price }}&nbsp;руб</span>
+                <label>
+                    <input type="number" name="{{ item.pk }}" min="0" value="{{ item.quantity }}">
+                </label>
+                <span class="product_cost">{{ item.cost }}&nbsp;руб</span>
+                <button class="btn btn-round">
+                    <a href="{% url 'basket:remove' item.pk %}" class="">
+                        удалить
+                    </a>
+                </button>
+            </div>
+        {% endfor %}
+
+    {% if basket %}
+        <div class="basket_summary">
+            В корзине {{ basket.0.total_quantity }} товаров общей стоимостью
+                      {{ basket.0.total_cost }} руб
+        </div>
+    {% endif %}
+
+        <button class="btn btn-round">
+            <a href="{% url 'index' %}">на главную</a>
+        </button>
+    </div>
+{% endblock %}

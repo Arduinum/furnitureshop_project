@@ -25,5 +25,12 @@
     </ul>
     <a href="#" class="search"><img src="{% static 'furnitureshop/img/search.png' %}" alt=""></a>
     <a href="{% url 'basket:view' %}" class="basket"><img src="{% static 'furnitureshop/img/basket.png' %}"
-                                                          alt=""><div>&nbsp;{{ basket|length }}</div></a>
+                                                          alt=""><div>&nbsp;{{ basket|length }}</div>
+        <span>
+            {% if basket %}
+                {{ basket.0.total_cost|floatformat:0 }} руб
+                {{ basket.0.total_quantity }} шт
+            {% endif %}
+        </span>
+    </a>
 </div>

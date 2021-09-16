@@ -24,7 +24,7 @@ def login(request):
         'title': title,
         'login_form': login_form
     }
-    return render(request=request, template_name='login.html', context=context)
+    return render(request=request, template_name='authapp/login.html', context=context)
 
 
 def logout(request):
@@ -49,7 +49,7 @@ def register(request):
         'register_form': register_form
     }
 
-    return render(request=request, template_name='register.html', context=context)
+    return render(request=request, template_name='authapp/register.html', context=context)
 
 
 def edit(request):
@@ -68,4 +68,4 @@ def edit(request):
         'edit_form': edit_form
     }
 
-    return render(request=request, template_name='edit.html', context=context)
+    return render(request=request, template_name='authapp/edit.html', context=context)

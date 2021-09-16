@@ -852,6 +852,11 @@ td:first-child {
     margin-right: 10px;
 }
 
+.slider-control img {
+    height: 70px;
+    width: 70px;
+}
+
 .slider-control a .text {
     display: none;
     height: 70px;

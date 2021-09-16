@@ -10,7 +10,7 @@ def index(request):
         'products': products
     }
 
-    return render(request=request, template_name='index.html', context=context)
+    return render(request=request, template_name='furnitureshop/index.html', context=context)
 
 
 def contacts(request):
@@ -19,4 +19,4 @@ def contacts(request):
         'title': title
     }
 
-    return render(request=request, template_name='contacts.html', context=context)
+    return render(request=request, template_name='furnitureshop/contacts.html', context=context)

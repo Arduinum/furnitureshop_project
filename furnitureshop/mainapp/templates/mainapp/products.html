@@ -1,31 +1,35 @@
-{% extends 'base.html' %}
+{% extends 'furnitureshop/base.html' %}
 {% load static %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'mainapp/style.css' %}">
+{% endblock %}
 
 {% block content %}
     <div class="hero-white">
-        {% include 'includes/inc_main_menu.html' %}
+        {% include 'furnitureshop/includes/inc_main_menu.html' %}
     </div>
 
     <div class="details">
-        {% include 'includes/inc_category_menu.html' %}
+        {% include 'mainapp/includes/inc_category_menu.html' %}
         <div class="details-products">
             <div class="details-slider">
                 <div class="slider-product">
-                    <img src="{% static 'furnitureshop/img/product-2.jpg' %}">
+                    <img src="/media/{{hot_product.image}}">
                 </div>
                 <div class="slider-control">
                     <div class="block">
-                        <a href="#"><img src="{% static 'furnitureshop/img/controll.jpg' %}" alt="">
+                        <a href="#"><img src="/media/{{hot_product.image}}" alt="вариант 1">
                             <div class="text"></div>
                         </a>
                     </div>
                     <div class="block">
-                        <a href="#"><img src="{% static 'furnitureshop/img/controll1.jpg' %}" alt="">
+                        <a href="#"><img src="/media/{{hot_product.image}}" alt="вариант 2">
                             <div class="text"></div>
                         </a>
                     </div>
                     <div class="block">
-                        <a href="#"><img src="{% static 'furnitureshop/img/controll2.jpg' %}" alt="">
+                        <a href="#"><img src="/media/{{hot_product.image}}" alt="вариант 3">
                             <div class="text"></div>
                         </a>
                     </div>
@@ -33,17 +37,14 @@
             </div>
 
             <div class="description">
-                <h3 class="big-bold">Отличный стул</h3>
+                <h3 class="big-bold">{{ hot_product.name }}</h3>
                 <h3 class="red">горячее предложение</h3>
-                <p class="price">2585<span>руб</span></p>
-                <a href="#" class="red-button">
+                <p class="price">{{ hot_product.price }}<span>руб</span></p>
+                <a href="{% url 'products:product' hot_product.pk %}" class="red-button">
                     заказать <i class="fa fa-chevron-right" aria-hidden="true"></i>
                 </a>
                 <div class="description-text">
-                    <p>Расположитесь комфортно.</p>
-                    <p>Отличное качество материалов позволит вам это.</p>
-                    <p>Различные цвета.</p>
-                    <p>Высочайший уровень эргономики и прочность.</p>
+                    <p>{{ hot_product.short_desk }}</p>
                 </div>
             </div>
         </div>
@@ -79,7 +80,7 @@
                                                                   alt=""></a>
                 </div>
                 <div class="related-products clearfix">
-                    {% for product in products %}
+                    {% for product in same_products %}
                         <div class="block">
                             <a href="#"><img src="/media/{{ product.image }}" alt="">
                                 <div class="text">
