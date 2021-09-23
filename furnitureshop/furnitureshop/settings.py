@@ -29,7 +29,8 @@ INSTALLED_APPS = [
 
     'mainapp',
     'authapp',
-    'basketapp'
+    'basketapp',
+    'adminapp'
 ]
 
 MIDDLEWARE = [
@@ -115,7 +116,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'furnitureshop', 'static'),
     os.path.join(BASE_DIR, 'mainapp', 'static'),
-    os.path.join(BASE_DIR, 'basketapp', 'static')
+    os.path.join(BASE_DIR, 'basketapp', 'static'),
+    os.path.join(BASE_DIR, 'adminapp', 'static')
 ]
 
 MEDIA_URL = '/media/'

@@ -1,3 +1,4 @@
+{#12 стр#}
 {% load static %}
 
 <div class="header clearfix">
@@ -8,6 +9,11 @@
                 {% if title|title == 'Продукты/Каталог' %}{{ 'active' }}{% endif %}>продукты</a></li>
         <li><a href="{% url 'contacts' %}" class=
                 {% if title|title == 'Контакты' %}{{ 'active' }}{% endif %}>контакты</a></li>
+        {% if user.is_superuser %}
+            <li>
+                <a href="{% url 'admin_staff:users' %}">Админка</a>
+            </li>
+        {% endif %}
         {% if user.is_authenticated %}
             <li>
                 <a href="{% url 'auth:edit' %}">

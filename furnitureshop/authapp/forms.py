@@ -43,10 +43,15 @@ class ShopUserEditForm(UserChangeForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'form-control'
+            if field_name == 'is_active' or field_name == 'is_staff' or field_name == 'is_superuser' or \
+                    field_name == 'is_deleted':
+                field.widget.attrs['class'] = 'form-check-input mt-0'
+            else:
+                field.widget.attrs['class'] = 'form-control'
             field.help_text = ''
             if field_name == 'password':
                 field.widget = forms.HiddenInput()
+        print(self.fields.items())
 
     def clean_age(self):
         data = self.cleaned_data['age']
