@@ -35,7 +35,7 @@
                             </tr>
                             </tfoot>
                             <tbody>
-                            {% for user in objects %}
+                            {% for user in users %}
                                 <tr {% if user.is_deleted %} style="opacity: 0.5;" {% endif %}>
                                     <td><a href="{% url 'admin_staff:user_update' user.id %}"
                                            style="color: dodgerblue">{{ user.username }}</a></td>
@@ -59,14 +59,26 @@
                                     <td>{{ user.last_login }}</td>
                                     <td>
                                         <a {% if user.is_deleted %} class="invisible" {% endif %}
-                                                href="{% url 'admin_staff:user_delete' pk=user.id %}">
-                                                <i class="fa fa-times-circle"></i>
+                                                                    href="{% url 'admin_staff:user_delete' pk=user.id %}">
+                                            <i class="fa fa-times-circle"></i>
                                         </a>
                                     </td>
                                 </tr>
                             {% endfor %}
                             </tbody>
                         </table>
+                        <div class="pagination">
+                            {% if users.has_previous %}
+                                <a href="{% url 'admin_staff:users_page' page=users.previous_page_number %}"><</a>
+                            {% endif %}
+                            <span class="current">
+                            страница {{ users.number }} из
+                            {{ users.paginator.num_pages }}
+                            </span>
+                            {% if users.has_next %}
+                                <a href="{% url 'admin_staff:users_page' page=users.next_page_number %}">></a>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
                 <div class="card-footer">

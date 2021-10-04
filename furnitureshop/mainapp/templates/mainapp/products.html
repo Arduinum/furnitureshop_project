@@ -15,21 +15,21 @@
         <div class="details-products">
             <div class="details-slider">
                 <div class="slider-product">
-                    <img src="/media/{{hot_product.image}}">
+                    <img src="/media/{{ hot_product.image }}">
                 </div>
                 <div class="slider-control">
                     <div class="block">
-                        <a href="#"><img src="/media/{{hot_product.image}}" alt="вариант 1">
+                        <a href="#"><img src="/media/{{ hot_product.image }}" alt="вариант 1">
                             <div class="text"></div>
                         </a>
                     </div>
                     <div class="block">
-                        <a href="#"><img src="/media/{{hot_product.image}}" alt="вариант 2">
+                        <a href="#"><img src="/media/{{ hot_product.image }}" alt="вариант 2">
                             <div class="text"></div>
                         </a>
                     </div>
                     <div class="block">
-                        <a href="#"><img src="/media/{{hot_product.image}}" alt="вариант 3">
+                        <a href="#"><img src="/media/{{ hot_product.image }}" alt="вариант 3">
                             <div class="text"></div>
                         </a>
                     </div>
@@ -51,7 +51,21 @@
 
         <div class="featured mt5">
             <h2>
-                Категория: "{{ category.name|title }}"
+                {% if category %}
+                    <div class="paginator">
+                        {% if products.has_previous %}
+                            <a class="paginator-href"
+                               href="{% url 'products:page' category.pk products.previous_page_number %}"><</a>
+                        {% endif %}
+                        <span class="current">
+                            страница {{ products.number }} из {{ products.paginator.num_pages }}
+                        </span>
+                        {% if products.has_next %}
+                            <a class="paginator-href"
+                               href="{% url 'products:page' category.pk products.next_page_number %}">></a>
+                        {% endif %}
+                    </div>
+                {% endif %}
             </h2>
             <div class="featured-menu">
                 <a class="active" href="#">Популярные</a><a href="#">Новинки</a>

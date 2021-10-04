@@ -968,6 +968,10 @@ td:first-child {
     margin-bottom: 0.5em;
 }
 
+.paginator-href {
+    text-decoration: none;
+}
+
 .related {
     padding: 0px 98px;
 }

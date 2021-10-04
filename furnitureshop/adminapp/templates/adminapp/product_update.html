@@ -15,8 +15,8 @@
             <input class="form-control" type="submit" value="сохранить">
         </form>
         <button class="btn btn-round form-control last">
-            <a href="{% url 'admin_staff:categories' %}" class="">
-                к категориям
+            <a href="{% url 'admin_staff:products_page' pk=category_pk page=page_number %}" class="">
+                к продуктам
             </a>
         </button>
     </div>

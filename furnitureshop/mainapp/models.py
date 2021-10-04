@@ -23,6 +23,8 @@ class ProductCategory(models.Model):
 
     is_deleted = models.BooleanField(default=False)
 
+    is_active = models.BooleanField(default=False)
+
     def __str__(self):
         return self.name or f'Category with id - {self.pk}'
 

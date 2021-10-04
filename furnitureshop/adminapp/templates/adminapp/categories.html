@@ -25,9 +25,9 @@
                             </tr>
                             </tfoot>
                             <tbody>
-                            {% for category in objects %}
+                            {% for category in categories %}
                                 <tr {% if category.is_deleted %} style="opacity: 0.5;" {% endif %}>
-                                    <td><a href="{% url 'admin_staff:products' category.id %}"
+                                    <td><a href="{% url 'admin_staff:products' pk=category.id %}"
                                            style="color: dodgerblue">{{ category.name }}</a></td>
                                     <td>
                                         <a href="{% url 'admin_staff:category_update' pk=category.id %}">
@@ -45,6 +45,18 @@
                             {% endfor %}
                             </tbody>
                         </table>
+                         <div class="pagination">
+                            {% if categories.has_previous %}
+                                <a href="{% url 'admin_staff:categories_page' categories.previous_page_number%}"><</a>
+                            {% endif %}
+                            <span class="current">
+                                страница {{ categories.number }} из
+                                {{ categories.paginator.num_pages }}
+                            </span>
+                            {% if categories.has_next %}
+                                <a href="{% url 'admin_staff:categories_page' categories.next_page_number %}">></a>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
                 <div class="card-footer">

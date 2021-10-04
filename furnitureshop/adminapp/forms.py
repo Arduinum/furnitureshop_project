@@ -18,7 +18,7 @@ class ProductCategoryEditForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
-            if field_name == 'is_deleted':
+            if field_name == 'is_deleted' or field_name == 'is_active':
                 field.widget.attrs['class'] = 'form-check-input mt-0'
             else:
                 field.widget.attrs['class'] = 'form-control'
