@@ -4,14 +4,14 @@
 
 {% block content %}
     <div class="card" style="width: 18rem;">
-        <img src="{{ product.image|media_folder_products }}" class="card-img-top" alt="">
+        <img src="{{ object.image|media_folder_products }}" class="card-img-top" alt="">
         <div class="card-body">
-            <h5 class="card-title">{{ product.name }}</h5>
-            <p class="card-text">{{ product.description }}</p>
+            <h5 class="card-title">{{ object.name }}</h5>
+            <p class="card-text">{{ object.description }}</p>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">Стоимость: {{ product.price }} руб.</li>
-            <li class="list-group-item">На складе: {{ product.quantity }} шт.</li>
+            <li class="list-group-item">Стоимость: {{ object.price }} руб.</li>
+            <li class="list-group-item">На складе: {{ object.quantity }} шт.</li>
         </ul>
     </div>
 {% endblock %}

@@ -35,7 +35,7 @@
                             </tr>
                             </tfoot>
                             <tbody>
-                            {% for user in users %}
+                            {% for user in object_list %}
                                 <tr {% if user.is_deleted %} style="opacity: 0.5;" {% endif %}>
                                     <td><a href="{% url 'admin_staff:user_update' user.id %}"
                                            style="color: dodgerblue">{{ user.username }}</a></td>
@@ -68,15 +68,17 @@
                             </tbody>
                         </table>
                         <div class="pagination">
-                            {% if users.has_previous %}
-                                <a href="{% url 'admin_staff:users_page' page=users.previous_page_number %}"><</a>
+                            {% if page_obj.has_previous %}
+                                <a href="?page=1">< first&nbsp;</a>
+                                <a href="?page={{ page_obj.previous_page_number }}">previous&nbsp;</a>
                             {% endif %}
                             <span class="current">
-                            страница {{ users.number }} из
-                            {{ users.paginator.num_pages }}
+                            страница {{ page_obj.number }} из
+                            {{ page_obj.paginator.num_pages }}
                             </span>
-                            {% if users.has_next %}
-                                <a href="{% url 'admin_staff:users_page' page=users.next_page_number %}">></a>
+                            {% if page_obj.has_next %}
+                                <a href="?page={{ page_obj.next_page_number }}">&nbsp;next</a>
+                                <a href="?page={{ page_obj.paginator.num_pages }}">&nbsp;last ></a>
                             {% endif %}
                         </div>
                     </div>
